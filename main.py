@@ -7,10 +7,10 @@ from colors import Colors
 
 pg.init()
 
-# cars = EntitySet("car", (100, 100) [Attribute("license_no", True), Attribute("owner"), Attribute("model")])
-# services = EntitySet("services", (400, 400), [Attribute("service_no", True), Attribute("type"), Attribute("price")])
-# entitySets = [cars, services]
-# relations = [Relation(cars, services, (SQLConstants.ONE, SQLConstants.MANY), attributes = [Attribute("date"), Attribute("hours")], name="repair")]
+cars = EntitySet("car", (100, 100), [Attribute("license_no", True), Attribute("owner"), Attribute("model")])
+services = EntitySet("services", (400, 400), [Attribute("service_no", True), Attribute("type"), Attribute("price")])
+entitySets = [cars, services]
+relations = [Relation(cars, services, (SQLConstants.ONE, SQLConstants.MANY), (200, 200), attributes = [Attribute("date"), Attribute("hours")], name="repair")]
 
 # entitySets = []
 # relations = []

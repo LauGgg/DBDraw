@@ -14,7 +14,6 @@ class Relation(Colors, SQLConstants):
         self.attributes = attributes
         self.name = name
         self.pos = pos
-        self.pos = (0, 0)
 
     def dist(self, pos):
         center = (self.pos[0] + self.entityWidth + self.space // 2, self.pos[1] + max(len(self.E1.attributes), len(self.E2.attributes)) * 22 + 35)
@@ -28,8 +27,10 @@ class Relation(Colors, SQLConstants):
         pg.draw.polygon(scr, (0,0,0), points)    
     
     def render(self, scr):
-        self.E1.render(scr, (self.pos[0], self.pos[1]), self.entityWidth)
-        self.E2.render(scr, (self.pos[0] + self.entityWidth + self.space, self.pos[1]), self.entityWidth)
+        self.E1.pos = (self.pos[0], self.pos[1])
+        self.E2.pos = (self.pos[0] + self.entityWidth + self.space, self.pos[1])
+        self.E1.render(scr, self.entityWidth)
+        self.E2.render(scr, self.entityWidth)
         polySize = (90, 70)
         points = [
             (self.pos[0] + self.entityWidth + self.space // 2 - polySize[0] // 2, self.pos[1] + 15 + polySize[1] // 2), 
