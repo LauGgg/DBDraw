@@ -3,3 +3,4 @@ class Colors:
     BLACK = (0, 0, 0)
     LIGHT_BLUE = (235, 246, 250)
     BLUE = (197, 232, 243)
+    PURPLE = (153, 102, 255)
