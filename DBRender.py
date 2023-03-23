@@ -8,10 +8,17 @@ class DBRender():
         self.attributes = attributes
         self.selected = True
         self.state = len(self.attributes) - 1
+        self.weak = False
+    
+    def tab(self):
+        if self.state == len(self.attributes) - 1:
+            self.state = -1
+        else:
+            self.state += 1
     
     def addAttribute(self):
         self.attributes.append(Attribute("", False))
-        self.state += 1
+        self.state = len(self.attributes) - 1
     
     def setPrimary(self):
         if self.state != -1:
@@ -22,8 +29,17 @@ class DBRender():
     
     def select(self):
         self.selected = True
+        
+    def cycleWeak(self):
+        self.weak = not self.weak
     
-    def writeInput(self, char="", delete=0):
+    def writeInput(self, char="", delete=0, tab=False):
+        if tab:
+            if self.state == -1:
+                self.name += "    "
+            else:
+                self.attributes[self.state].name += "    "
+
         # print(char)
         if self.state == -1:
             if delete == 1:

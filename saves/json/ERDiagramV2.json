@@ -1,0 +1,292 @@
+{
+    "entitysets": [
+        {
+            "name": "customer",
+            "pos": [
+                14,
+                76
+            ],
+            "attributes": [
+                [
+                    "customerID",
+                    true
+                ],
+                [
+                    "name",
+                    false
+                ],
+                [
+                    "telephone_number",
+                    false
+                ],
+                [
+                    "    area_code",
+                    false
+                ],
+                [
+                    "    phone_number",
+                    false
+                ],
+                [
+                    "password",
+                    false
+                ],
+                [
+                    "address",
+                    false
+                ]
+            ],
+            "inRelation": true,
+            "weak": false
+        },
+        {
+            "name": "shop_order",
+            "pos": [
+                424,
+                97
+            ],
+            "attributes": [
+                [
+                    "orderID",
+                    true
+                ],
+                [
+                    "status",
+                    false
+                ]
+            ],
+            "inRelation": true,
+            "weak": false
+        },
+        {
+            "name": "product",
+            "pos": [
+                834,
+                97
+            ],
+            "attributes": [
+                [
+                    "prodID",
+                    true
+                ],
+                [
+                    "prod_name",
+                    false
+                ],
+                [
+                    "price",
+                    false
+                ],
+                [
+                    "stock",
+                    false
+                ]
+            ],
+            "inRelation": true,
+            "weak": false
+        },
+        {
+            "name": "department",
+            "pos": [
+                1244,
+                426
+            ],
+            "attributes": [
+                [
+                    "departID",
+                    true
+                ],
+                [
+                    "depart_name",
+                    false
+                ]
+            ],
+            "inRelation": true,
+            "weak": false
+        },
+        {
+            "name": "job_function",
+            "pos": [
+                834,
+                426
+            ],
+            "attributes": [
+                [
+                    "job_title",
+                    true
+                ],
+                [
+                    "salary_range",
+                    false
+                ],
+                [
+                    "    min_salary",
+                    false
+                ],
+                [
+                    "    max_salary",
+                    false
+                ]
+            ],
+            "inRelation": true,
+            "weak": true
+        },
+        {
+            "name": "employee",
+            "pos": [
+                424,
+                426
+            ],
+            "attributes": [
+                [
+                    "employeeID",
+                    true
+                ],
+                [
+                    "name",
+                    false
+                ],
+                [
+                    "telephone_number",
+                    false
+                ],
+                [
+                    "    area_code",
+                    false
+                ],
+                [
+                    "    phone_number",
+                    false
+                ],
+                [
+                    "salary",
+                    false
+                ]
+            ],
+            "inRelation": true,
+            "weak": false
+        }
+    ],
+    "relations": [
+        {
+            "name": "customer_order",
+            "pos": [
+                14,
+                76
+            ],
+            "attributes": [],
+            "weak": false,
+            "relation": [
+                1,
+                0
+            ],
+            "participation": [
+                9,
+                8
+            ],
+            "entitysetNames": [
+                "customer",
+                "shop_order"
+            ]
+        },
+        {
+            "name": "purchase",
+            "pos": [
+                424,
+                97
+            ],
+            "attributes": [
+                [
+                    "{quantity",
+                    false
+                ],
+                [
+                    "purchase_price}",
+                    false
+                ]
+            ],
+            "weak": false,
+            "relation": [
+                0,
+                0
+            ],
+            "participation": [
+                8,
+                9
+            ],
+            "entitysetNames": [
+                "shop_order",
+                "product"
+            ]
+        },
+        {
+            "name": "stocker",
+            "pos": [
+                424,
+                97
+            ],
+            "attributes": [],
+            "weak": false,
+            "relation": [
+                0,
+                1
+            ],
+            "participation": [
+                8,
+                9
+            ],
+            "entitysetNames": [
+                "shop_order",
+                "employee"
+            ]
+        },
+        {
+            "name": "emp_job_funct",
+            "pos": [
+                424,
+                426
+            ],
+            "attributes": [
+                [
+                    "{start_date}",
+                    false
+                ]
+            ],
+            "weak": false,
+            "relation": [
+                0,
+                1
+            ],
+            "participation": [
+                8,
+                9
+            ],
+            "entitysetNames": [
+                "employee",
+                "job_function"
+            ]
+        },
+        {
+            "name": "dept_job_funct",
+            "pos": [
+                834,
+                426
+            ],
+            "attributes": [],
+            "weak": true,
+            "relation": [
+                0,
+                1
+            ],
+            "participation": [
+                8,
+                9
+            ],
+            "entitysetNames": [
+                "job_function",
+                "department"
+            ]
+        }
+    ],
+    "lines": []
+}

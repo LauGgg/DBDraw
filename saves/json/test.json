@@ -1,0 +1,24 @@
+{
+    "entitysets": [
+        {
+            "name": "",
+            "pos": [
+                200,
+                350
+            ],
+            "attributes": [],
+            "inRelation": false
+        },
+        {
+            "name": "",
+            "pos": [
+                518,
+                346
+            ],
+            "attributes": [],
+            "inRelation": false
+        }
+    ],
+    "relations": [],
+    "lines": []
+}
